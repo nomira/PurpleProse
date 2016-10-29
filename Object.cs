@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace StoryPlanner
 {
-    abstract class Object  //This will be a parent class to all objects
+    /*abstract*/ class Object  //This will be a parent class to all objects
     {
         public enum relationshipTypes {Null, Father, Mother, Sibling, Friend, Enemy}; //Types of relationships... let me know if we need more
         protected string name, description, history, imageFile;
@@ -37,6 +38,20 @@ namespace StoryPlanner
         }
         public void changeName(string newName) {  //Change the name of this object
             name = newName;
+        }
+        public string[] getDescText() { //Returns the description text
+            string[] myDesc = File.ReadAllLines(description);
+            return myDesc;
+        }
+        public string[] getHistText() { //Returns the history text
+            string[] myHist = File.ReadAllLines(history);
+            return myHist;
+        }
+        public void writeHist(string[] hist) {
+            File.WriteAllLines(history, hist); //Writes the history to the file
+        }
+        public void writeDesc(string[] desc) {
+            File.WriteAllLines(description, desc); //Writes the description to the file.
         }
         public void establishRelationship(Object relateMe, relationshipTypes myType) { //Create a new relationship
             relationship newRelationship = new relationship();
