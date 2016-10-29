@@ -59,6 +59,11 @@ namespace StoryPlanner
             newRelationship.type = myType;
             myRelationships.Add(newRelationship);
         }
+        public void removeRelationship(Object removeMe) { //Removes a relationship
+            foreach (relationship theRelationships in myRelationships) {
+                if (theRelationships.myRelationship == removeMe) myRelationships.Remove(theRelationships);
+            }
+        }
         public relationshipTypes whatsTheRelationshipTo(Object myName) { //Return relationship type to given object
             foreach (relationship theRelationship in myRelationships) {
                 if (theRelationship.myRelationship.getName() == myName.getName()) {
