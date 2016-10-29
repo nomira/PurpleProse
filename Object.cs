@@ -14,7 +14,7 @@ namespace StoryPlanner
         protected List<relationship> myRelationships; //List of this objects relationships
         public Object(string name, string desc, string hist, string imageFile) { //Constructor to assign values to name, desc, and hist
             this.name = name;
-            this.description = desc;
+            this.description = desc; //Desc, hist, and imageFile hold filenames with the extension
             this.history = hist;
             this.imageFile = imageFile;
             myRelationships = new List<relationship>();
