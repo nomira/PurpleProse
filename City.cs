@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace StoryPlanner
 {
-    class City
+    public class City : Location
     {
         protected int myPopulation; //Population of the town
         public enum size { XSmall, Small, Medium, Large, XLarge }; //Size of the town, this might need to go in the parent class
         protected size mySize;
-        public City(int pop, size theSize)
+        public City(int pop, size theSize, string name, string desc, string hist, string imageFile) : base(name, desc, hist, imageFile)
         {
             myPopulation = pop;
             mySize = theSize;
@@ -37,6 +37,18 @@ namespace StoryPlanner
             {
                 mySize = value;
             }
+        }
+        private Region regio;
+        public Region Regio
+        {
+            get { return regio; }
+            set { regio = value; }
+        }
+        private Country state;
+        public Country State
+        {
+            get { return state; }
+            set { state = value; if (state.Regio != null) regio = state.Regio; }
         }
     }
 }
