@@ -7,7 +7,7 @@ using System.IO;
 
 namespace StoryPlanner
 {
-    abstract class Object  //This will be a parent class to all objects
+    public abstract class Object  //This will be a parent class to all objects
     {
         public enum relationshipTypes {Null, Father, Mother, Sibling, Friend, Enemy}; //Types of relationships... let me know if we need more
         protected string name, description, history, imageFile;
