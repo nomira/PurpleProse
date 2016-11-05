@@ -14,7 +14,7 @@ namespace StoryPlanner
         protected List<relationship> myRelationships; //List of this objects relationships
         public Object(string name, string desc, string hist, string imageFile) { //Constructor to assign values to name, desc, and hist
             this.name = name;
-            this.description = desc; //Desc, hist, and imageFile hold filenames with the extension
+            this.description = desc; //desc, hist, and imageFile hold filenames with extension
             this.history = hist;
             this.imageFile = imageFile;
             myRelationships = new List<relationship>();
@@ -24,34 +24,60 @@ namespace StoryPlanner
             public Object myRelationship;
         }
 
-        public string getName() { //Returns the name of the object
-            return name;
+        public string Name { //Returns the name of the object
+            get {
+                return name;
+            }
+            set {
+                name = value;
+            }
         }
-        public string getDescFile() { //Gets the file name that contains the description of the object
-            return description;
+        public string DescFile { //Gets the file name that contains the description of the object
+            get
+            {
+                return description;
+            }
+            set {
+                description = value;
+            }
         }
-        public string getHistFile() { //Gets the file name that contains the history of the object
-            return history;
+        public string Hist { //Gets the file name that contains the history of the object
+            get
+            {
+                return history;
+            }
+            set {
+                history = value;
+            }
         }
-        public string getImageFile() { //Gets the file name that contains the image of the object
-            return imageFile;
+        public string ImageFile{ //Gets the file name that contains the image of the object
+            get
+            {
+                return imageFile;
+            }
+            set {
+                imageFile = value;
+            }
         }
-        public void changeName(string newName) {  //Change the name of this object
-            name = newName;
+        public string[] DescText { //Returns the description text
+            get
+            {
+                string[] myDesc = File.ReadAllLines(description);
+                return myDesc;
+            }
+            set {
+                File.WriteAllLines(description, value);
+            }
         }
-        public string[] getDescText() { //Returns the description text
-            string[] myDesc = File.ReadAllLines(description);
-            return myDesc;
-        }
-        public string[] getHistText() { //Returns the history text
-            string[] myHist = File.ReadAllLines(history);
-            return myHist;
-        }
-        public void writeHist(string[] hist) {
-            File.WriteAllLines(history, hist); //Writes the history to the file
-        }
-        public void writeDesc(string[] desc) {
-            File.WriteAllLines(description, desc); //Writes the description to the file.
+        public string[] HistText { //Returns the history text
+            get
+            {
+                string[] myHist = File.ReadAllLines(history);
+                return myHist;
+            }
+            set {
+                File.WriteAllLines(history, value); //Writes the history to the file
+            }
         }
         public void establishRelationship(Object relateMe, relationshipTypes myType) { //Create a new relationship
             relationship newRelationship = new relationship();
