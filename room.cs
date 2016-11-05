@@ -7,9 +7,8 @@ using System.IO;
 
 namespace StoryPlanner
 {
-    class room
+    public class room : Location
     {
-        public enum measurement { Inches, Centimeters, Feet, Meters, Yard, Lightyear };  //Should probably go in the location class
         private struct dimensions {
             public double x;
             public double y;
@@ -18,7 +17,8 @@ namespace StoryPlanner
         dimensions myRoom;
         private string myDescription;
 
-        public room(double x, double y, measurement measuredIn, string descriptionFile) {
+        public room(double x, double y, measurement measuredIn, string descriptionFile, string name, string desc, string hist, string imageFile) : base(name, desc, hist, imageFile)
+        {
             myRoom = new dimensions();
             myRoom.x = x;
             myRoom.y = y;
@@ -26,16 +26,6 @@ namespace StoryPlanner
             this.myDescription = descriptionFile;
         }
 
-        public string[] description { //Get and set the description
-            set {
-                File.WriteAllLines(myDescription, value);
-             }
-            get {
-                string[] theWords;
-                theWords = File.ReadAllLines(myDescription);
-                return theWords;
-            }
-        }
         public double[] getDimensions { //The first element in the array is x, the second is y
             set {
                 myRoom.x = value[0];
@@ -55,6 +45,12 @@ namespace StoryPlanner
             get {
                 return myRoom.usedMeasurement;
             }
+        }
+        private Building complex;
+        public Building Complex
+        {
+            get { return complex; }
+            set { complex = value; }
         }
     }
 }
