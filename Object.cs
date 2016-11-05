@@ -24,7 +24,7 @@ namespace StoryPlanner
             public Object myRelationship;
         }
 
-        public string Name { //Returns the name of the object
+        public string Name { //Gets and Sets the name of the object
             get {
                 return name;
             }
@@ -32,7 +32,7 @@ namespace StoryPlanner
                 name = value;
             }
         }
-        public string DescFile { //Gets the file name that contains the description of the object
+        public string DescFile { //Gets and Sets the file name that contains the description of the object
             get
             {
                 return description;
@@ -41,7 +41,7 @@ namespace StoryPlanner
                 description = value;
             }
         }
-        public string Hist { //Gets the file name that contains the history of the object
+        public string Hist { //Gets and sets the file name that contains the history of the object
             get
             {
                 return history;
@@ -50,7 +50,7 @@ namespace StoryPlanner
                 history = value;
             }
         }
-        public string ImageFile{ //Gets the file name that contains the image of the object
+        public string ImageFile{ //Gets and sets the file name that contains the image of the object
             get
             {
                 return imageFile;
@@ -59,7 +59,7 @@ namespace StoryPlanner
                 imageFile = value;
             }
         }
-        public string[] DescText { //Returns the description text
+        public string[] DescText { //Gets and Sets the description text
             get
             {
                 string[] myDesc = File.ReadAllLines(description);
@@ -69,7 +69,7 @@ namespace StoryPlanner
                 File.WriteAllLines(description, value);
             }
         }
-        public string[] HistText { //Returns the history text
+        public string[] HistText { //Gets and Sets the history text
             get
             {
                 string[] myHist = File.ReadAllLines(history);
