@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoryPlanner
 {
-    class Location
+    class Country
     {
     }
 }
