@@ -30,7 +30,7 @@ namespace StoryPlanner
         public int timeLeft {
             get {
                 if (DateTime.Now > newDeadline) return 0; //Deadline must be in the future
-                else return (int)Math.Ceiling(newDeadline.Subtract(DateTime.Now).TotalDays);
+                else return (int)Math.Ceiling(newDeadline.Subtract(DateTime.Now).TotalDays); //Round number of days left up and return as int
             }
         }
     }
