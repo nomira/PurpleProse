@@ -24,67 +24,32 @@ namespace StoryPlanner
             public Object myRelationship;
         }
 
-        public string Name { //Gets and Sets the name of the object
-            get {
-                return name;
-            }
-            set {
-                name = value;
-            }
-        }
-        public string DescFile { //Gets and Sets the file name that contains the description of the object
-            get
-            {
-                return description;
-            }
-            set {
-                description = value;
-            }
-        }
-        public string Hist { //Gets and sets the file name that contains the history of the object
-            get
-            {
-                return history;
-            }
-            set {
-                history = value;
-            }
-        }
-        public string ImageFile{ //Gets and sets the file name that contains the image of the object
-            get
-            {
-                return imageFile;
-            }
-            set {
-                imageFile = value;
-            }
-        }
+        public string name		{ get; set; }
+        public string DescFile	{ get; set; }
+        public string Hist		{ get; set; }
+        public string ImageFile	{ get; set; }
         public string[] DescText { //Gets and Sets the description text
-            get
-            {
-                string[] myDesc = File.ReadAllLines(description);
+            get {
+				string[] myDesc = File.ReadAllLines(description);
                 return myDesc;
             }
-            set {
-                File.WriteAllLines(description, value);
-            }
+            set{ File.WriteAllLines(description, value); }
         }
         public string[] HistText { //Gets and Sets the history text
-            get
-            {
-                string[] myHist = File.ReadAllLines(history);
+            get {
+            	string[] myHist = File.ReadAllLines(history);
                 return myHist;
             }
-            set {
-                File.WriteAllLines(history, value); //Writes the history to the file
-            }
+            set { File.WriteAllLines(history, value); } //Writes the history to the file
         }
+
         public void establishRelationship(Object relateMe, relationshipTypes myType) { //Create a new relationship
             relationship newRelationship = new relationship();
             newRelationship.myRelationship = relateMe;
             newRelationship.type = myType;
             myRelationships.Add(newRelationship);
         }
+
         public void removeRelationship(Object removeMe) { //Removes a relationship
             foreach (relationship theRelationships in myRelationships) {
                 if (theRelationships.myRelationship == removeMe) myRelationships.Remove(theRelationships);
