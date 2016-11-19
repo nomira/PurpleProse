@@ -17,15 +17,11 @@ namespace StoryPlanner
         }
         public enum technologyLevel {Primitive, PreWarp, Modern, Spacefaring, PreIndustrial, Other}; //Not sure if we need more
         string otherLevel; //If the user chose other
-        public enum biome {Taiga, Grassland, Chaparral, Desert, Rainforest, Alpine};
-        private long population;
+        public  enum biome {Taiga, Grassland, Chaparral, Desert, Rainforest, Alpine};
+        public  long population { get; set; }
         private technologyLevel myLevel;
-        private biome myLand;
-        public long populations { //Set and get population
-            get { return population; }
-            set { population = value; }
+        public  biome myLand	{ get; set; }
 
-        }
         public void setLevel(technologyLevel theLevel, string other = "") { //Set the technology level
             theLevel = myLevel;
             if (myLevel == technologyLevel.Other) otherLevel = other;
@@ -33,10 +29,6 @@ namespace StoryPlanner
         public string getLevel() { //Get the technology level
             if (myLevel == technologyLevel.Other) return otherLevel;
             return myLevel.ToString();
-        }
-        public biome theBiome {
-            get { return myLand; }
-            set { myLand = value; }
         }
     }
 }
