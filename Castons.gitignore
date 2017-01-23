@@ -1,0 +1,13 @@
+	# D:\Documents\Visual Studio 2015\Projects\Project_Purple_Prose - Copy\
+	Properties
+	bin
+	obj
+	*.7z
+	*.dmg
+	*.gz
+	*.iso
+	*.jar
+	*.rar
+	*.tar
+	*.zip
+	
